@@ -17,7 +17,7 @@ public class FizzBuzz_ {
     public void should_return_number_when_it_is_not_fizz_and_not_buzz() {
         assertThat(fizzBuzz.of(1)).isEqualTo("1");
         assertThat(fizzBuzz.of(2)).isEqualTo("2");
-        assertThat(fizzBuzz.of(2)).isEqualTo("4");
+        assertThat(fizzBuzz.of(4)).isEqualTo("4");
     }
 
     @Test
@@ -25,9 +25,14 @@ public class FizzBuzz_ {
         assertThat(fizzBuzz.of(3)).isEqualTo("fizz");
     }
 
+    @Test
+    public void should_return_fizz_when_it_is_5() {
+        assertThat(fizzBuzz.of(5)).isEqualTo("buzz");
+    }
+
     private class FizzBuzz {
         public String of(int number) {
-            return number == 3 ? "fizz" : String.valueOf(number);
+            return number != 3 ? number != 5 ? String.valueOf(number) : "buzz" : "fizz";
         }
     }
 
